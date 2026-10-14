@@ -1,0 +1,27 @@
+Oct 13 08:12:01 vps-prod sshd[711]: Server listening on 0.0.0.0 port 22.
+Oct 13 08:12:01 vps-prod sshd[711]: Server listening on :: port 22.
+Oct 13 09:03:17 vps-prod sshd[2041]: Accepted publickey for thibault from 203.0.113.42 port 51288 ssh2: ED25519 SHA256:T9mQ0kR1vZ8pL2xH7bN4cW6sY3dF5gJ8kM0nP1qR2sT
+Oct 13 09:03:17 vps-prod sshd[2041]: pam_unix(sshd:session): session opened for user thibault(uid=1000) by (uid=0)
+Oct 13 09:41:52 vps-prod sshd[2103]: Invalid user admin from 185.243.96.107 port 40112
+Oct 13 09:41:52 vps-prod sshd[2103]: Failed password for invalid user admin from 185.243.96.107 port 40112 ssh2
+Oct 13 09:41:53 vps-prod sshd[2103]: Connection closed by invalid user admin 185.243.96.107 port 40112 [preauth]
+Oct 13 09:41:55 vps-prod sshd[2105]: Invalid user oracle from 185.243.96.107 port 40118
+Oct 13 09:41:55 vps-prod sshd[2105]: Failed password for invalid user oracle from 185.243.96.107 port 40118 ssh2
+Oct 13 09:41:58 vps-prod sshd[2107]: Invalid user postgres from 185.243.96.107 port 40126
+Oct 13 09:41:58 vps-prod sshd[2107]: Failed password for invalid user postgres from 185.243.96.107 port 40126 ssh2
+Oct 13 09:42:01 vps-prod sshd[2109]: Invalid user ubuntu from 185.243.96.107 port 40134
+Oct 13 09:42:01 vps-prod sshd[2109]: Failed password for invalid user ubuntu from 185.243.96.107 port 40134 ssh2
+Oct 13 09:42:04 vps-prod sshd[2111]: Invalid user test from 185.243.96.107 port 40142
+Oct 13 09:42:04 vps-prod sshd[2111]: Failed password for invalid user test from 185.243.96.107 port 40142 ssh2
+Oct 13 09:42:07 vps-prod sshd[2113]: Failed password for root from 185.243.96.107 port 40150 ssh2
+Oct 13 09:42:10 vps-prod sshd[2113]: Failed password for root from 185.243.96.107 port 40150 ssh2
+Oct 13 09:42:13 vps-prod sshd[2113]: Disconnected from authenticating user root 185.243.96.107 port 40150 [preauth]
+Oct 13 10:15:33 vps-prod CRON[2250]: pam_unix(cron:session): session opened for user root by (uid=0)
+Oct 13 10:15:33 vps-prod sudo[2261]: thibault : TTY=pts/0 ; PWD=/home/thibault ; USER=root ; COMMAND=/usr/bin/apt update
+Oct 13 11:02:44 vps-prod sshd[2402]: Accepted password for deploy from 198.51.100.17 port 60214 ssh2
+Oct 13 11:48:09 vps-prod sshd[2402]: Disconnected from user deploy 198.51.100.17 port 60214
+Oct 13 12:30:00 vps-prod sshd-session[2510]: Accepted publickey for ops from 2001:db8:dead:beef::7 port 2222 ssh2: RSA SHA256:aB3dEfGhIjKlMnOpQrStUvWxYz0123456789abcd
+Oct 13 12:31:11 vps-prod sshd[2511]: Failed publickey for thibault from 203.0.113.42 port 51302 ssh2
+Oct 13 12:31:14 vps-prod sshd[2511]: Accepted publickey for thibault from 203.0.113.42 port 51302 ssh2: ED25519 SHA256:T9mQ0kR1vZ8pL2xH7bN4cW6sY3dF5gJ8kM0nP1qR2sT
+Oct 13 13:00:02 vps-prod sshd[2600]: Invalid user  from 92.63.197.55 port 55001
+Oct 13 13:00:02 vps-prod sshd[2600]: Received disconnect from 92.63.197.55 port 55001:11: Bye Bye [preauth]
