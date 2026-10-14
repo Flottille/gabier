@@ -4,6 +4,9 @@ version = "0.1.0"
 edition = "2021"
 description = "Notifie sur Discord à chaque connexion SSH"
 license = "MIT"
+repository = "https://github.com/Flottille/gabier"
+homepage = "https://gabier.sh"
+readme = "README.md"
 
 [dependencies]
 tokio = { version = "1", features = [
