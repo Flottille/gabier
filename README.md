@@ -3,6 +3,18 @@
 Envoie une notification Discord et/ou Slack à chaque connexion SSH sur le
 serveur.
 
+<p align="center">
+  <img src="https://gabier.nebulabs.org/media/how-it-works.gif"
+       alt="Une connexion SSH acceptée devient une notification Discord en moins d'une seconde ; un scan de 43 tentatives n'en produit qu'une seule, résumée."
+       width="800">
+</p>
+
+<p align="center">
+  <a href="https://gabier.nebulabs.org">Site et documentation</a> ·
+  <a href="https://gabier.nebulabs.org/install/">Installation</a> ·
+  <a href="https://gabier.nebulabs.org/docs/throttling/">L'anti-spam</a>
+</p>
+
 ```
 🔓 Connexion SSH acceptée
 Clé `ED25519 SHA256:T9mQ0kR1vZ8pL2xH7bN4...`
