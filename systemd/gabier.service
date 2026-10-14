@@ -1,0 +1,48 @@
+[Unit]
+Description=Gabier — notifications Discord des connexions SSH
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/gabier run --config /etc/gabier/config.toml
+Restart=always
+RestartSec=5s
+
+# Compte de service dedie, cree par install.sh.
+User=gabier
+Group=gabier
+# Indispensable pour lire le journal systemd sans etre root.
+SupplementaryGroups=systemd-journal
+
+# Le secret peut vivre ici plutot que dans config.toml:
+#   echo 'GABIER_DISCORD_WEBHOOK=https://discord.com/api/webhooks/...' \
+#     > /etc/gabier/env && chmod 600 /etc/gabier/env
+EnvironmentFile=-/etc/gabier/env
+
+# Durcissement: le service ne fait que lire des logs et poster en HTTPS.
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+ProtectClock=yes
+RestrictNamespaces=yes
+RestrictRealtime=yes
+RestrictSUIDSGID=yes
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+CapabilityBoundingSet=
+SystemCallFilter=@system-service
+SystemCallErrorNumber=EPERM
+
+# Garde-fous de ressources.
+MemoryMax=64M
+TasksMax=32
+
+[Install]
+WantedBy=multi-user.target

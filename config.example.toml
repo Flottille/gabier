@@ -1,0 +1,63 @@
+# Copier en /etc/gabier/config.toml
+#
+# Au moins une destination est requise: [discord], [slack], ou les deux.
+# Avec les deux, chaque notification part aux deux — si l'une tombe, l'autre
+# passe quand même.
+
+# Ajoute pays / ville / opérateur à la notification. Attention: envoie
+# chaque IP source à ipwho.is.
+geoip = false
+
+[server]
+# Par défaut le hostname. À nommer si tu surveilles plusieurs machines.
+name = "vps-prod-1"
+
+[discord]
+# Paramètres du salon > Intégrations > Webhooks > Nouveau webhook.
+# Peut rester vide si tu exportes GABIER_DISCORD_WEBHOOK à la place.
+webhook_url = ""
+username = "Gabier"
+
+# Pour être ping. Utilisateur: "<@123456789>", rôle: "<@&123456789>".
+# ping = "<@123456789>"
+ping_on_accepted = false
+ping_on_failure = false
+
+# [slack]
+# # api.slack.com/apps > ton app > Incoming Webhooks > Add New Webhook.
+# # Ou exporte GABIER_SLACK_WEBHOOK.
+# webhook_url = "https://hooks.slack.com/services/T000/B000/xxxx"
+# username = "Gabier"
+# # Syntaxe Slack, différente de Discord. Utilisateur: "<@U0123ABCD>",
+# # groupe: "<!subteam^S0123ABCD>", tout le salon: "<!channel>".
+# ping = "<!channel>"
+# ping_on_accepted = false
+# ping_on_failure = false
+
+[source]
+# journald = journalctl --follow (systemd, le cas normal)
+# file     = tail -F sur un fichier
+# stdin    = pipe, pour tester
+kind = "journald"
+
+# "ssh" sur Debian/Ubuntu, "sshd" sur RHEL/Arch. Suivre les deux ne coûte
+# rien, journalctl ignore celle qui n'existe pas.
+units = ["ssh", "sshd"]
+
+# Avec kind = "file":
+# path = "/var/log/auth.log"   # Debian, Ubuntu
+# path = "/var/log/secure"     # RHEL, Alma, Rocky
+
+[events]
+accepted = true
+failed = true
+invalid_user = true
+# Les déconnexions doublent le volume pour pas grand-chose.
+closed = false
+
+[throttle]
+# Par IP: les `burst` premiers échecs partent tout de suite, les suivants
+# sont comptés et résumés en un message à la fin de la fenêtre. Sans ça, un
+# scan sur le port 22 noie le salon et tu rates la vraie connexion.
+window_secs = 300
+burst = 1
