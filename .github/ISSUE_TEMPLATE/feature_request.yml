@@ -1,0 +1,47 @@
+name: Feature request
+description: A new destination, a parsing improvement, an option
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gabier is small on purpose: it reads sshd logs and posts a
+        notification. Worth knowing before you write — **Gabier observes, it
+        never bans**, and anything needing a database, a daemon of its own, or
+        an open port is out of scope. See
+        [CONTRIBUTING.md](https://github.com/Flottille/gabier/blob/main/CONTRIBUTING.md#what-fits-what-doesnt).
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What you are trying to do that Gabier makes hard or impossible today.
+      placeholder: |
+        My team is on Matrix, not Discord or Slack, so the notifications land in
+        a channel nobody reads.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you have in mind
+      description: |
+        A config shape, a message layout, a command — concrete beats abstract.
+        If it is a new destination, link the API docs for its webhook.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: What you tried instead
+      description: Existing options, a wrapper script, another tool.
+
+  - type: checkboxes
+    id: offer
+    attributes:
+      label: Implementation
+      options:
+        - label: I'd be willing to send a pull request for this.
+          required: false

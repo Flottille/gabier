@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Documentation
+    url: https://gabier.nebulabs.org
+    about: Install, config, throttling — check here before filing a bug.
+  - name: Report a vulnerability
+    url: https://github.com/Flottille/gabier/security/advisories/new
+    about: Private report, readable only by the maintainers. Never a public issue.

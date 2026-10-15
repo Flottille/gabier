@@ -1,0 +1,105 @@
+name: Bug report
+description: A notification that is wrong, missing, duplicated, or never arrives
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before anything else: **remove your webhook URL** from everything you
+        paste. It is a credential — anyone holding it can post in your channel.
+        Redact IPs, usernames, hostnames and key fingerprints too.
+
+        Found a security issue? Don't file it here — see
+        [SECURITY.md](https://github.com/Flottille/gabier/blob/main/SECURITY.md).
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: And what you expected instead.
+      placeholder: |
+        An accepted login from a new IP produced no notification; failures from
+        the same IP arrived normally.
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Output of `gabier --version`, or the commit you built.
+      placeholder: gabier 0.1.0
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: Distribution and OpenSSH version
+      description: "`cat /etc/os-release | head -2` and `sshd -V 2>&1 | head -1`."
+      placeholder: Debian 12 · OpenSSH_9.2p1
+    validations:
+      required: true
+
+  - type: dropdown
+    id: source
+    attributes:
+      label: Log source
+      description: The `[source]` section, or the default.
+      options:
+        - journald (default)
+        - file (/var/log/auth.log or other)
+        - stdin / replay
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: destinations
+    attributes:
+      label: Destinations configured
+      options:
+        - label: Discord
+        - label: Slack
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction with replay
+      description: |
+        The most useful thing you can attach. Put the offending log lines in a
+        file — redacted — and run:
+
+        ```
+        gabier replay lines.log --dry-run
+        ```
+
+        Paste the log lines and what `--dry-run` printed. This sends nothing.
+      render: text
+
+  - type: textarea
+    id: config
+    attributes:
+      label: Config
+      description: Your config.toml, with `webhook_url` and `ping` removed.
+      render: toml
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Gabier's own logs
+      description: |
+        `journalctl -u gabier -n 50 --no-pager`, or run with
+        `RUST_LOG=debug` for more.
+      render: text
+
+  - type: checkboxes
+    id: hygiene
+    attributes:
+      label: Before submitting
+      options:
+        - label: I removed webhook URLs, tokens and anything else secret from what I pasted.
+          required: true
+        - label: I redacted IPs, usernames, hostnames and key fingerprints.
+          required: true
+        - label: I checked this against the latest release or `main`.
+          required: false

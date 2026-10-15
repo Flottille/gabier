@@ -174,3 +174,12 @@ output, not stale documentation.
   Deduplication folds them into a single notification — deliberate, for the
   noise — but the burst counter under-counts by the same amount.
 - Gabier observes, it never bans. `fail2ban` is still useful alongside it.
+
+## Contributing
+
+Issues and patches are welcome. [CONTRIBUTING.md](CONTRIBUTING.md) covers what
+fits, what CI runs, and how to add a destination — the code is laid out for it.
+Everyone taking part is expected to follow the
+[Code of Conduct](CODE_OF_CONDUCT.md).
+
+Found a vulnerability? [SECURITY.md](SECURITY.md) — privately, not in an issue.
